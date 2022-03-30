@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -25,11 +26,18 @@ public class Main {
         //turn file to string? string to tree set?
         /*Path iliadPath = file.toPath();
         String content = Files.readString(iliadPath, StandardCharsets.US_ASCII);*/
+
+        //edit this to replace all punct in iliad
+        String result = str.replaceAll("\\p{Punct}", "");
+
         TreeSet<String> uniqueWords = new TreeSet<>();
         while(scanner.hasNext()){
             uniqueWords.add(scanner.next());
         }
-
+        Iterator<String> wordIterator = uniqueWords.iterator();
+        while (wordIterator.hasNext()){
+            System.out.println(wordIterator.next());
+        }
         System.out.println(uniqueWords.size());
     }
 }
