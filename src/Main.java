@@ -27,13 +27,28 @@ public class Main {
         /*Path iliadPath = file.toPath();
         String content = Files.readString(iliadPath, StandardCharsets.US_ASCII);*/
 
-        //edit this to replace all punct in iliad
-        String result = str.replaceAll("\\p{Punct}", "");
-
-        TreeSet<String> uniqueWords = new TreeSet<>();
+        /*TreeSet<String> uniqueWords = new TreeSet<>();
         while(scanner.hasNext()){
             uniqueWords.add(scanner.next());
         }
+
+        //edit this to replace all punct in iliad
+        String iliadText = scanner.nextLine();
+        String noPunct = iliadText.replaceAll("\\p{Punct}", "");
+        System.out.println(noPunct);
+
+        Iterator<String> wordIterator = uniqueWords.iterator();
+        while (wordIterator.hasNext()){
+            System.out.println(wordIterator.next());
+        }
+        System.out.println(uniqueWords.size());*/
+        TreeSet<String> uniqueWords = new TreeSet<>();
+        while(scanner.hasNext()){
+            String iliadText = scanner.next();
+            String noPunct = iliadText.replaceAll("\\p{Punct}", "");
+            uniqueWords.add(noPunct.toLowerCase());
+        }
+
         Iterator<String> wordIterator = uniqueWords.iterator();
         while (wordIterator.hasNext()){
             System.out.println(wordIterator.next());
